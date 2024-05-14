@@ -26,6 +26,14 @@ public class ContentCollectionRepository {
         return contents.stream().filter(c -> c.id().equals(id)).findFirst();
     }
 
+    public void save(Content content) {
+        contents.add(content);
+    }
+
+    public boolean existsById(Integer id) {
+        return contents.stream().filter(c -> c.id().equals(id)).count() == 1;
+    }
+
     @PostConstruct
     private void init() {
         Content c = new Content(1,
