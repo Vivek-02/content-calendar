@@ -27,6 +27,7 @@ public class ContentCollectionRepository {
     }
 
     public void save(Content content) {
+        contents.removeIf(c -> c.id().equals(content.id()));
         contents.add(content);
     }
 
